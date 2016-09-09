@@ -1,0 +1,227 @@
+@mixin increment-delay($offset: .05s, $count: 10, $delay: 0, $type: transition) {
+  @for $i from 1 through $count {
+    $time: ($i * $offset) + $delay;
+    &:nth-child(#{$i}) {
+      #{$type}-delay: $time;
+    }
+  }
+}
+
+$clr-yellow: #F3B644;
+
+.cover-anim {
+
+  .topper-mod {
+    background-color: $clr-yellow;
+    padding: 150px;
+  }
+
+  .cover {
+    background-color: $clr-yellow;
+    display: block;
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 30px 30px 30px rgba(0,0,0,.1), 10px 10px 20px rgba(0,0,0,.1);;
+    border-radius: 2px;
+    overflow: hidden;
+    &:after {
+      pointer-events: none;
+      @include absolute(0);
+      content: '';
+      display: block;
+      background-image: radial-gradient(rgba(0,0,0,.0), rgba(0,0,0,0.1));
+      border-radius: 2px;
+    }
+  }
+
+  .cover-shapes-mod {
+    @include absolute(n 4% 9% -12%);
+    padding-top: 100%;
+    transform: rotate(-45deg);
+  }
+
+  .cover-shapes {
+    width: 20%;
+    float: left;
+    padding: 0 1%;
+    position: absolute;
+    top: 0;
+  }
+
+  @for $i from 1 through 4 {
+    .cover-shapes--#{$i +1 } {
+      left: $i*20%;
+    }
+  }
+
+  $small-gap: 2%;
+  $normal-gap: 4%;
+  $big-gap: 26.2%;
+
+  .cover-shapes--1 {
+    top: 42.8%;
+  }
+  .cover-shapes--2 {
+    top: 21.5%;
+  }
+  .cover-shapes--3 {
+    top: 0;
+  }
+  .cover-shapes--4 {
+    top: 21.5%;
+  }
+  .cover-shapes--5 {
+    top: 42.8%;
+  }
+
+
+
+
+  .cover-shape {
+    width: 100%;
+    background-color: #251E13;
+    padding-top: 18%;
+    margin-bottom: $normal-gap;
+    &.hidden {
+      background: $clr-yellow;
+    }
+  }
+
+  // .cover-shapes--2 {
+  //   .cover-shape--13,
+  //   .cover-shape--15 {
+  //     margin-bottom: $big-gap;
+  //   }
+  // }
+
+  // .cover-shapes--3 {
+  //   .cover-shape--15,
+  //   .cover-shape--19,
+  //   .cover-shape--20,
+  //   .cover-shape--23 {
+  //     margin-bottom: $big-gap;
+  //   }
+  // }
+
+  // .cover-shapes--4 {
+  //   .cover-shape--13,
+  //   .cover-shape--14 {
+  //     margin-bottom: $big-gap;
+  //   }
+  // }
+
+  @keyframes zoom {
+    0% {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+
+      // transform: translate3d(-1000%, 0, 0);
+    }
+    // 10% {
+    //   // transform: translate3d(-1000%, 0, 0);
+    // }
+    // 20% {
+    //   transform: translate3d(0, 0, 0);
+    // }
+
+    50% {
+      opacity: .01;
+      // transform: translate3d(0, 0, 0) scale(0.95);
+    }
+
+    // 90% {
+    //   // transform: translate3d(1000%, 0, 0);
+    // }
+    100% {
+      // transform: translate3d(1000%, 0, 0);
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .cover-shapes--3 .cover-shape--1 {
+  }
+
+  .cover-shape {
+    animation: zoom 8s ease infinite;
+  }
+
+  .cover-shapes--1 .cover-shape,
+  .cover-shapes--5 .cover-shape {
+    @include increment-delay($offset: .1s, $count: 24, $delay: .2, $type: animation);
+  }
+  .cover-shapes--2 .cover-shape,
+  .cover-shapes--4 .cover-shape {
+    @include increment-delay($offset: .1s, $count: 24, $delay: .1, $type: animation);
+  }
+  .cover-shapes--3 .cover-shape {
+    @include increment-delay($offset: .1s, $count: 24, $delay: 0, $type: animation);
+  }
+
+
+}
+
+
+.circle-topper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #BE0012;
+}
+
+.circle-mod {
+  @include size(300px);
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.circle {
+  background-color: #fff;
+  overflow: hidden;
+  @include absolute(0);
+}
+
+@keyframes circle-mask {
+  0% {
+    transform: translate3d(100%, 0, 0) rotatey(0deg);
+  }
+  50% {
+    transform: translate3d(50%, 0, 0) rotatey(90deg);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0) rotatey(180deg);
+  }
+}
+
+@keyframes circle-mask-2 {
+  0% {
+    transform: translate3d(100%, 0, 0);
+  }
+  50% {
+    transform: translate3d(50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.circle-mask {
+  background-color: #fff;
+  @include absolute(0);
+  background-color: #BE0012;
+  transform: rotatey(90deg);
+  border-radius: 50%;
+  transform-origin: 0 50%;
+  animation: circle-mask 10s infinite;
+}
+
+.circle-mask-2 {
+  @include absolute(0);
+  background-color: #000;
+  animation: circle-mask-2 10s infinite;
+}

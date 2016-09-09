@@ -1,0 +1,71 @@
+---
+title: TR Cover anim
+menu: true
+body_class: cover-anim
+---
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+<!-- <div class="circle-topper">
+  <div class="circle-mod">
+    <div class="circle">
+      <div class="circle-mask-2">
+
+      </div>
+      <div class="circle-mask">
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="topper-mod">
+  <div class="cover">
+  <div class="cover-topper-text">
+    <img src="static/img/TR-cover.svg" alt="">
+  </div>
+    <div class="cover-shapes-mod">
+      <ul class="cover-shapes cover-shapes--1">
+        {% for i in 1..10 %}
+          <li class="cover-shape cover-shape--{{i}}"></li>
+        {% endfor %}
+      </ul>
+      <ul class="cover-shapes cover-shapes--2">
+        {% for i in 1..19 %}
+          {% if i == 14 or i == 17 %}
+            <li class="cover-shape cover-shape--{{i}} hidden"></li>
+          {% else %}
+            <li class="cover-shape cover-shape--{{i}}"></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      <ul class="cover-shapes cover-shapes--3">
+        {% for i in 1..28 %}
+          {% if i == 16 or i == 21 or i == 23 or i == 27 %}
+            <li class="cover-shape cover-shape--{{i}} hidden"></li>
+          {% else %}
+            <li class="cover-shape cover-shape--{{i}}"></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      <ul class="cover-shapes cover-shapes--4">
+        {% for i in 1..17 %}
+          {% if i == 12 or i == 14 %}
+            <li class="cover-shape cover-shape--{{i}} hidden"></li>
+          {% else %}
+            <li class="cover-shape cover-shape--{{i}}"></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+      <ul class="cover-shapes cover-shapes--5">
+        {% for i in 1..8 %}
+          <li class="cover-shape cover-shape--{{i}}"></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock %}
