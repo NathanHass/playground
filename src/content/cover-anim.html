@@ -18,53 +18,156 @@ body_class: cover-anim
   </div>
 </div> -->
 
+<!-- Slider main container -->
+<div class="swiper-container">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
 
-<div class="topper-mod">
-  <div class="cover">
-  <div class="cover-topper-text">
-    <img src="static/img/TR-cover.svg" alt="">
-  </div>
-    <div class="cover-shapes-mod">
-      <ul class="cover-shapes cover-shapes--1">
-        {% for i in 1..10 %}
-          <li class="cover-shape cover-shape--{{i}}"></li>
-        {% endfor %}
-      </ul>
-      <ul class="cover-shapes cover-shapes--2">
-        {% for i in 1..19 %}
-          {% if i == 14 or i == 17 %}
-            <li class="cover-shape cover-shape--{{i}} hidden"></li>
-          {% else %}
-            <li class="cover-shape cover-shape--{{i}}"></li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-      <ul class="cover-shapes cover-shapes--3">
-        {% for i in 1..28 %}
-          {% if i == 16 or i == 21 or i == 23 or i == 27 %}
-            <li class="cover-shape cover-shape--{{i}} hidden"></li>
-          {% else %}
-            <li class="cover-shape cover-shape--{{i}}"></li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-      <ul class="cover-shapes cover-shapes--4">
-        {% for i in 1..17 %}
-          {% if i == 12 or i == 14 %}
-            <li class="cover-shape cover-shape--{{i}} hidden"></li>
-          {% else %}
-            <li class="cover-shape cover-shape--{{i}}"></li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-      <ul class="cover-shapes cover-shapes--5">
-        {% for i in 1..8 %}
-          <li class="cover-shape cover-shape--{{i}}"></li>
-        {% endfor %}
-      </ul>
+      <div data-color="#0f0f4a" class="swiper-slide topper-mod topper-mod--navy">
+        <div class="cover">
+          <div class="cover-topper-text">
+            <img src="static/img/TR-cover.svg" alt="">
+          </div>
+          <div class="blob-mod">
+            <canvas id="stage" width="500" height="100"></canvas>
+
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+              <defs>
+                <filter id="old-goo">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                  <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                  <feBlend in="SourceGraphic" in2="goo" />
+                </filter>
+                <filter id="fancy-goo">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                  <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                  <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+                </filter>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div data-color="#F3B644" class="swiper-slide topper-mod topper-mod--yellow">
+        <div class="cover">
+          <div class="cover-topper-text">
+            <img src="static/img/TR-cover.svg" alt="">
+          </div>
+          <div class="cover-shapes-mod">
+            <ul class="cover-shapes cover-shapes--1">
+              {% for i in 1..10 %}
+                <li class="cover-shape cover-shape--{{i}}"></li>
+              {% endfor %}
+            </ul>
+            <ul class="cover-shapes cover-shapes--2">
+              {% for i in 1..19 %}
+                {% if i == 14 or i == 17 %}
+                  <li class="cover-shape cover-shape--{{i}} hidden"></li>
+                {% else %}
+                  <li class="cover-shape cover-shape--{{i}}"></li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+            <ul class="cover-shapes cover-shapes--3">
+              {% for i in 1..28 %}
+                {% if i == 16 or i == 21 or i == 23 or i == 27 %}
+                  <li class="cover-shape cover-shape--{{i}} hidden"></li>
+                {% else %}
+                  <li class="cover-shape cover-shape--{{i}}"></li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+            <ul class="cover-shapes cover-shapes--4">
+              {% for i in 1..17 %}
+                {% if i == 12 or i == 14 %}
+                  <li class="cover-shape cover-shape--{{i}} hidden"></li>
+                {% else %}
+                  <li class="cover-shape cover-shape--{{i}}"></li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+            <ul class="cover-shapes cover-shapes--5">
+              {% for i in 1..8 %}
+                <li class="cover-shape cover-shape--{{i}}"></li>
+              {% endfor %}
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <div data-color="#222" class="swiper-slide topper-mod topper-mod--green">
+        <div class="cover">
+          <div class="cover-topper-text">
+            <img src="static/img/TR-cover-3.svg" alt="">
+          </div>
+          <div class="swirl-block">
+
+            <div class="swirl-mod swirl-mod--yellow">
+              <div class="swirl">
+                <div class="swirl">
+                  <div class="swirl">
+                    <div class="swirl">
+                      <div class="swirl">
+                        <div class="swirl">
+                          <div class="swirl">
+                            <div class="swirl">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swirl-mod swirl-mod--black">
+              <div class="swirl">
+                <div class="swirl">
+                  <div class="swirl">
+                    <div class="swirl">
+                      <div class="swirl">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div data-color="#0147A9" class="swiper-slide topper-mod topper-mod--blue">
+        <div class="cover">
+          <div class="cover-topper-text">
+            <img src="static/img/TR-cover-2.svg" alt="">
+          </div>
+          <div class="triangle-list-mod">
+            <ul class="triangle-block triangle-block--left">
+              {% for i in 1..8 %}
+                <li class="triangle-mod triangle-mod--up triangle-mod--{{i}}">
+                  <div class="triangle"></div>
+                </li>
+              {% endfor %}
+            </ul>
+            <ul class="triangle-block triangle-block--right">
+              {% for i in 1..8 %}
+                <li class="triangle-mod triangle-mod--down triangle-mod--{{i}}">
+                  <div class="triangle"></div>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-  </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
 </div>
 
 

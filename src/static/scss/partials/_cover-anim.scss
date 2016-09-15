@@ -1,3 +1,24 @@
+@mixin increment-delay-child($offset: .05s, $count: 10, $delay: 0, $type: transition, $child: '.target', $reverse: false) {
+
+  @for $i from 1 through $count {
+    $time: (($i - 1) * $offset) + $delay;
+    @if $reverse {
+
+      &:nth-of-type(#{($count + 1) - $i}) {
+       #{$child}  {
+          #{$type}-delay: $time;
+        }
+      }
+    } @else {
+      &:nth-of-type(#{$i}) {
+       #{$child}  {
+          #{$type}-delay: $time;
+        }
+      }
+    }
+  }
+}
+
 @mixin increment-delay($offset: .05s, $count: 10, $delay: 0, $type: transition) {
   @for $i from 1 through $count {
     $time: ($i * $offset) + $delay;
@@ -7,23 +28,43 @@
   }
 }
 
-$clr-yellow: #F3B644;
+$clr-yellow:  #F3B644;
+$clr-blue:    #073CA2;
+$clr-red:     #F11A22;
+$clr-green:   #111;
+
 
 .cover-anim {
 
+  .cover-topper-text {
+    pointer-events: none;
+    position: relative;
+    z-index: 1;
+  }
+
   .topper-mod {
-    background-color: $clr-yellow;
-    padding: 150px;
+    padding: 50px;
+    opacity: 0;
+    transition: opacity .5s;
+    @include mq(750px) {
+      width: 50vw;
+      min-height: 100vh;
+      float: left;
+    }
+  }
+
+  &.js-topper-is-active .topper-mod {
+    opacity: 1;
+
   }
 
   .cover {
-    background-color: $clr-yellow;
     display: block;
     position: relative;
     max-width: 700px;
     margin: 0 auto;
     box-shadow: 30px 30px 30px rgba(0,0,0,.1), 10px 10px 20px rgba(0,0,0,.1);;
-    border-radius: 2px;
+    border-radius: 3px;
     overflow: hidden;
     &:after {
       pointer-events: none;
@@ -31,9 +72,19 @@ $clr-yellow: #F3B644;
       content: '';
       display: block;
       background-image: radial-gradient(rgba(0,0,0,.0), rgba(0,0,0,0.1));
-      border-radius: 2px;
+      border-radius: 3px;
     }
   }
+
+
+
+  // yellow stuff
+
+
+  .topper-mod--yellow .cover {
+    background-color: $clr-yellow;
+  }
+
 
   .cover-shapes-mod {
     @include absolute(n 4% 9% -12%);
@@ -84,7 +135,7 @@ $clr-yellow: #F3B644;
     padding-top: 18%;
     margin-bottom: $normal-gap;
     &.hidden {
-      background: $clr-yellow;
+      background: transparent;
     }
   }
 
@@ -161,67 +212,257 @@ $clr-yellow: #F3B644;
   }
 
 
-}
 
-
-.circle-topper {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  background-color: #BE0012;
-}
-
-.circle-mod {
-  @include size(300px);
-  border-radius: 50%;
-  overflow: hidden;
-  position: relative;
-}
-
-.circle {
-  background-color: #fff;
-  overflow: hidden;
-  @include absolute(0);
-}
-
-@keyframes circle-mask {
-  0% {
-    transform: translate3d(100%, 0, 0) rotatey(0deg);
+  .circle-topper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #BE0012;
   }
-  50% {
-    transform: translate3d(50%, 0, 0) rotatey(90deg);
+
+  .circle-mod {
+    @include size(300px);
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
   }
-  100% {
-    transform: translate3d(-100%, 0, 0) rotatey(180deg);
+
+  .circle {
+    background-color: #fff;
+    overflow: hidden;
+    @include absolute(0);
   }
+
+  @keyframes circle-mask {
+    0% {
+      transform: translate3d(100%, 0, 0) rotatey(0deg);
+    }
+    50% {
+      transform: translate3d(50%, 0, 0) rotatey(90deg);
+    }
+    100% {
+      transform: translate3d(-100%, 0, 0) rotatey(180deg);
+    }
+  }
+
+  @keyframes circle-mask-2 {
+    0% {
+      transform: translate3d(100%, 0, 0);
+    }
+    50% {
+      transform: translate3d(50%, 0, 0);
+    }
+    100% {
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+
+  .circle-mask {
+    background-color: #fff;
+    @include absolute(0);
+    background-color: #BE0012;
+    transform: rotatey(90deg);
+    border-radius: 50%;
+    transform-origin: 0 50%;
+    animation: circle-mask 10s infinite;
+  }
+
+  .circle-mask-2 {
+    @include absolute(0);
+    background-color: #000;
+    animation: circle-mask-2 10s infinite;
+  }
+
+
+
+  // blue stuff
+  .topper-mod--blue {
+    .cover {
+      background-color: $clr-blue;
+    }
+
+    .triangle-list-mod {
+      overflow: hidden;
+      @include absolute(n 0 -3% 0);
+      background-color: $clr-red;
+      padding-top: 100%;
+    }
+
+    .triangle-block {
+      width: 53%;
+      &:first-child {
+        @include absolute(0 53% 0 n);
+        transform: rotate(180deg);
+        .triangle-mod {
+          @include increment-delay-child($offset: .8s, $count: 8, $delay: 0, $type: animation, $child: '.triangle');
+        }
+      }
+      &:last-child {
+        @include absolute(0 n 0 47%);
+        .triangle-mod {
+          @include increment-delay-child($offset: .8s, $count: 8, $delay: 1s, $type: animation, $child: '.triangle', $reverse: true);
+        }
+      }
+    }
+
+
+    .triangle-mod {
+
+
+      background-color: $clr-red;
+
+      &.hidden {
+        // background-color: $clr-blue;
+      }
+      @for $i from 1 through 8 {
+        $segment-height: 100% / 8;
+        $top: $segment-height * ($i - 1);
+        $bottom: $segment-height * (8 - $i);
+        $opacity: $i / 10;
+        &.triangle-mod--#{$i} {
+          @include absolute($top 0 $bottom);
+
+        }
+      }
+    }
+
+    @keyframes triangle {
+      0% {
+        transform: translate3d(20%,-32%,0) scaleY(1.1) rotate(45deg) ;
+      }
+      50% {
+        transform: translate3d(20%,-32%,0) scaleY(0) rotate(45deg) ;
+      }
+      100% {
+        transform: translate3d(20%,-32%,0) scaleY(1.1) rotate(45deg) ;
+      }
+    }
+
+    .triangle {
+      background: $clr-blue;
+      width: 71.4%;
+      padding-top: 70.6%;
+      transform: translate3d(20%,-32%,0) scaleY(1.1) rotate(45deg) ;
+      position: absolute;
+      top: 50%;
+      animation: triangle 30s linear infinite;
+    }
+
+    .hidden .triangle {
+      // background-color: $clr-red;
+    }
+  }
+
+  .topper-mod--green {
+    .cover {
+      background-color: $clr-green;
+    }
+  }
+
+
+  .swiper-container {
+    background-color: #0F0F4A;
+    transition: background-color .5s ease;
+    position: relative;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 25%;
+    z-index: 1;
+
+  }
+  .swiper-button-prev {
+    @include absolute(0 n 0 0);
+  }
+  .swiper-button-next {
+    @include absolute(0 0 0 n);
+  }
+
+  .swirl-block {
+    @include absolute(n n 3% -5%);
+    width: 100%;
+    padding-top: 100%;
+    transform:rotate(90deg);
+    // filter: blur(6px) contrast(10);
+    .swirl-mod {
+      @include absolute(4%);
+    }
+
+    .swirl-mod,
+    .swirl {
+      border-radius: 50%;
+    }
+
+    .swirl-mod .swirl {
+    @include absolute(1vw);
+    }
+
+    .swirl-mod--black,
+    .swirl-mod--black .swirl {
+      border: 2vw solid $clr-green;
+    }
+
+    .swirl-mod--yellow,
+    .swirl-mod--yellow .swirl {
+      border: 1vw solid #FDC65B;
+    }
+
+    @keyframes rotate-left {
+      0% {
+        transform: rotate(0deg)  translate3d(1vw, -1vw, 0) ;
+      }
+      50% {
+        transform: rotate(-180deg)  translate3d(1vw, -1vw, 0) ;
+      }
+      100% {
+        transform:rotate(-360deg)  translate3d(1vw, -1vw, 0) ;
+      }
+    }
+
+
+    @keyframes rotate-right {
+      0% {
+        transform:rotate(0deg)  translate3d(-1vw, 1vw, 0) ;
+      }
+      50% {
+        transform:rotate(180deg)  translate3d(-1vw, 1vw, 0) ;
+      }
+      100% {
+        transform:rotate(360deg)  translate3d(-1vw, 1vw, 0) ;
+      }
+    }
+
+    .swirl-mod--black {
+      animation: rotate-left 30s linear infinite ;
+    }
+
+    .swirl-mod--yellow {
+      animation: rotate-right 30s linear infinite ;
+    }
+  }
+
+
+  .topper-mod--navy {
+    .blob-mod {
+      @include absolute(n 0 0 0);
+      padding-top: 110%;
+    }
+
+    svg {
+      position: fixed;
+    }
+    .cover {
+      background-color: #0A0A3C;
+      canvas {
+        -webkit-filter:url("#fancy-goo");
+        @include absolute(0);
+      }
+
+    }
+  }
+
 }
 
-@keyframes circle-mask-2 {
-  0% {
-    transform: translate3d(100%, 0, 0);
-  }
-  50% {
-    transform: translate3d(50%, 0, 0);
-  }
-  100% {
-    transform: translate3d(-100%, 0, 0);
-  }
-}
-
-.circle-mask {
-  background-color: #fff;
-  @include absolute(0);
-  background-color: #BE0012;
-  transform: rotatey(90deg);
-  border-radius: 50%;
-  transform-origin: 0 50%;
-  animation: circle-mask 10s infinite;
-}
-
-.circle-mask-2 {
-  @include absolute(0);
-  background-color: #000;
-  animation: circle-mask-2 10s infinite;
-}
