@@ -1,0 +1,178 @@
+.phone-test {
+
+  .section-block {
+    min-height: 125vh;
+    position: relative;
+    &:first-of-type {
+      min-height: 50vh;
+    }
+  }
+
+  .section-block--black {
+    background: #222;
+    padding-bottom: 500px;
+  }
+
+  .section-block--white {
+    background: #fff;
+  }
+
+  .clip  {
+    @include absolute(0 0 5px);
+    padding: 100px 100px 2px;
+    clip: rect(auto,auto,auto,auto);
+  }
+
+  .section__width {
+    max-width: 1400px;
+    padding: 100px;
+    margin: 0 auto;
+    // overflow: hidden;
+  }
+
+  .phone__mod {
+    position: relative;
+    width: 30%;
+    float: left;
+    margin-right: 5%;
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  .section-block--white {
+    .phone__mod {
+      width: calc(30% - 60px);
+    }
+    .text-mod {
+      padding-top: 310px;
+    }
+  }
+
+  .phone__inner {
+    @include absolute(8% 3.5%);
+    border-radius: 3px;
+    // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) inset;
+    border: 1px solid rgba(0,0,0,0.05);
+    background-size: 100%;
+    background-position: 50% 0%;
+    overflow: hidden;
+  }
+
+
+  .iphone__inner__image {
+    @include absolute(0 0 n);
+    width: 100%;
+  }
+
+  .iphone__inner__image--2 {
+    width: 300%;
+    transition: all .2s ease;
+    &.js-step-two {
+      transform: translate3d(-33.333%, 0, 0);
+    }
+    &.js-step-three {
+      transform: translate3d(-66.666%, 0, 0);
+    }
+  }
+
+  .inbox-trigger {
+    height: 180px;
+    &:nth-child(2) {
+      height: 15px;
+    }
+  }
+
+  .phone__mod--3,
+  .phone__mod--4 {
+    opacity: 0;
+    transform: translate3d( 0, 100px, 0);
+    transition: all .5s ease;
+  }
+  .phone__mod--3 {
+    transition-delay: .1s;
+  }
+
+  .show-phones {
+
+    .phone__mod--3{
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      transition-delay: 0s;
+    }
+    .phone__mod--4 {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+      transition-delay: .1s;
+    }
+  }
+
+  .phone__inner-bottom {
+    transform: translate3d(0px, -54%, 0px);
+
+  }
+  .phone__mod--2 {
+    position: fixed;
+    top: 100px;
+    left: 100px;
+    &.js-not-fixed {
+      position: absolute;
+      top: auto;
+      bottom: 255px;
+    }
+  }
+
+
+  .phone {
+    padding-top: 180%;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .2);
+  }
+
+  .section-block--black .text-mod {
+    color: #fff;
+  }
+
+}
+
+
+.screenshot {
+  width: 100%;
+}
+
+.text-mod {
+  margin-left: 400px;
+  padding-top: 250px;
+  max-width: 630px;
+  overflow: hidden;
+  color: #222;
+  h6 {
+    font-family: "plain", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 34px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid currentColor;
+    display: inline-block;
+  }
+
+  h3 {
+    font-weight: 900;
+    font-family: "Tiempos", Georgia, Times, serif;
+    font-size: 40px;
+    line-height: 42px;
+    margin-bottom: 30px;
+  }
+
+  p {
+    font-family: "Tiempos", Georgia, Times, serif;
+    font-weight: 300;
+    font-size: 21px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+  }
+}

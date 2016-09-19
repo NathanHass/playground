@@ -1,0 +1,46 @@
+---
+title: TR Cover Scroll
+menu: true
+body_class: cover-scroll
+---
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+
+
+<img src="static/img/cover-placeholder.jpg" class="screenshot">
+
+<div class="newtr-block">
+
+  <div id="space-trigger"></div>
+  <div class="spaceman-cover">
+    <img src="static/img/spaceman.jpg" class="spaceman-img">
+    <div class="spaceman-text-mod">
+      <img src="static/img/TR-cover-4.svg" class="spaceman-text">
+      <span class="spaceman-text-mask"></span>
+    </div>
+  </div>
+  <div class="text-mod text-mod--newtr-block">
+    <h6>Site Design</h6>
+    <h3>A contemporary take on Modernism</h3>
+    <p>Nullam vehicula tincidunt dignissim. Quisque convallis auctor massa at accumsan. Proin pellentesque accumsan ultricies. Proin non aliquam nisi, ac luctus odio. Donec semper rhoncus libero molestie feugiat. Vestibulum vel orci posuere, malesuada nulla id, egestas purus. Donec vitae lacinia augue.</p>
+    <p>Suspendisse potenti. Sed auctor dui et justo pellentesque, non fermentum sapien mattis. Nunc eu nibh nunc. Pellentesque sed porta magna. Mauris tincidunt eget urna nec consectetur. Morbi pharetra, enim et sodales iaculis, erat purus blandit libero, tincidunt finibus risus orci quis nulla.
+    </p>
+  </div>
+  <ul class="newtr-img__list">
+    <li class="newtr-img__item fade-in">
+      <img class="newtr-img" src="static/img/10plants.jpg">
+    </li>
+    <li class="newtr-img__item fade-in">
+      <img class="newtr-img" src="static/img/10interface.jpg">
+    </li>
+    <li class="newtr-img__item fade-in">
+      <img class="newtr-img" src="static/img/10cells.jpg">
+    </li>
+  </ul>
+</div>
+<div class="newtr-video-mod fade-in">
+  <img src="static/img/10Tech.png" class="newtr-video">
+</div>
+
+{% endblock %}

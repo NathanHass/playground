@@ -61,7 +61,7 @@ $clr-green:   #111;
   .cover {
     display: block;
     position: relative;
-    max-width: 700px;
+    // max-width: 700px;
     margin: 0 auto;
     box-shadow: 30px 30px 30px rgba(0,0,0,.1), 10px 10px 20px rgba(0,0,0,.1);;
     border-radius: 3px;
@@ -208,7 +208,7 @@ $clr-green:   #111;
     @include increment-delay($offset: .1s, $count: 24, $delay: .1, $type: animation);
   }
   .cover-shapes--3 .cover-shape {
-    @include increment-delay($offset: .1s, $count: 24, $delay: 0, $type: animation);
+    @include increment-delay($offset: .1s, $count: 28, $delay: 0, $type: animation);
   }
 
 
@@ -457,7 +457,9 @@ $clr-green:   #111;
     .cover {
       background-color: #0A0A3C;
       canvas {
-        -webkit-filter:url("#fancy-goo");
+        @include mq( 700px) {
+          filter:url("#fancy-goo");
+        }
         @include absolute(0);
       }
 

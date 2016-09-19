@@ -82,7 +82,12 @@ input, select { vertical-align: middle; }
 //  * table font-size is reset in the HTML5 reset above so there is no need to repeat
 
 body { font: 13px/1.231 sans-serif; *font-size: small; /*text-rendering: optimizeLegibility;*/
-  /* this causes problems in Chrome for Windows and on iOS */ -webkit-overflow-scrolling : touch;} // hack retained to preserve specificity
+  /* this causes problems in Chrome for Windows and on iOS */ -webkit-overflow-scrolling : touch;
+
+  margin: 0;
+  -moz-font-feature-settings: "liga" on;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;} // hack retained to preserve specificity
 
 select, input, textarea, button { font: 99% sans-serif; }
 

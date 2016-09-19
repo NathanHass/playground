@@ -1,0 +1,264 @@
+---
+title: Motion Test
+menu: true
+body_class: cover-anim phone-test cover-scroll
+---
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+<div class="cover-anim">
+  <div class="swiper-container">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+
+        <div data-color="#0f0f4a" class="swiper-slide topper-mod topper-mod--navy">
+          <div class="cover">
+            <div class="cover-topper-text">
+              <img src="static/img/TR-cover.svg" alt="">
+            </div>
+            <div class="blob-mod">
+              <canvas id="stage" width="500" height="100"></canvas>
+
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                <defs>
+                  <filter id="old-goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                    <feBlend in="SourceGraphic" in2="goo" />
+                  </filter>
+                  <filter id="fancy-goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                    <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+                  </filter>
+                </defs>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div data-color="#F3B644" class="swiper-slide topper-mod topper-mod--yellow">
+          <div class="cover">
+            <div class="cover-topper-text">
+              <img src="static/img/TR-cover.svg" alt="">
+            </div>
+            <div class="cover-shapes-mod">
+              <ul class="cover-shapes cover-shapes--1">
+                {% for i in 1..10 %}
+                  <li class="cover-shape cover-shape--{{i}}"></li>
+                {% endfor %}
+              </ul>
+              <ul class="cover-shapes cover-shapes--2">
+                {% for i in 1..19 %}
+                  {% if i == 14 or i == 17 %}
+                    <li class="cover-shape cover-shape--{{i}} hidden"></li>
+                  {% else %}
+                    <li class="cover-shape cover-shape--{{i}}"></li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+              <ul class="cover-shapes cover-shapes--3">
+                {% for i in 1..28 %}
+                  {% if i == 16 or i == 21 or i == 23 or i == 27 %}
+                    <li class="cover-shape cover-shape--{{i}} hidden"></li>
+                  {% else %}
+                    <li class="cover-shape cover-shape--{{i}}"></li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+              <ul class="cover-shapes cover-shapes--4">
+                {% for i in 1..17 %}
+                  {% if i == 12 or i == 14 %}
+                    <li class="cover-shape cover-shape--{{i}} hidden"></li>
+                  {% else %}
+                    <li class="cover-shape cover-shape--{{i}}"></li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+              <ul class="cover-shapes cover-shapes--5">
+                {% for i in 1..8 %}
+                  <li class="cover-shape cover-shape--{{i}}"></li>
+                {% endfor %}
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <div data-color="#222" class="swiper-slide topper-mod topper-mod--green">
+          <div class="cover">
+            <div class="cover-topper-text">
+              <img src="static/img/TR-cover-3.svg" alt="">
+            </div>
+            <div class="swirl-block">
+
+              <div class="swirl-mod swirl-mod--yellow">
+                <div class="swirl">
+                  <div class="swirl">
+                    <div class="swirl">
+                      <div class="swirl">
+                        <div class="swirl">
+                          <div class="swirl">
+                            <div class="swirl">
+                              <div class="swirl">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="swirl-mod swirl-mod--black">
+                <div class="swirl">
+                  <div class="swirl">
+                    <div class="swirl">
+                      <div class="swirl">
+                        <div class="swirl">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div data-color="#0147A9" class="swiper-slide topper-mod topper-mod--blue">
+          <div class="cover">
+            <div class="cover-topper-text">
+              <img src="static/img/TR-cover-2.svg" alt="">
+            </div>
+            <div class="triangle-list-mod">
+              <ul class="triangle-block triangle-block--left">
+                {% for i in 1..8 %}
+                  <li class="triangle-mod triangle-mod--up triangle-mod--{{i}}">
+                    <div class="triangle"></div>
+                  </li>
+                {% endfor %}
+              </ul>
+              <ul class="triangle-block triangle-block--right">
+                {% for i in 1..8 %}
+                  <li class="triangle-mod triangle-mod--down triangle-mod--{{i}}">
+                    <div class="triangle"></div>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+  </div>
+</div>
+<img src="static/img/TR-part-1.png" class="screenshot">
+
+
+<div class="newtr-block">
+
+  <div id="space-trigger"></div>
+  <div class="spaceman-cover">
+    <img src="static/img/spaceman.jpg" class="spaceman-img">
+    <div class="spaceman-text-mod">
+      <img src="static/img/TR-cover-4.svg" class="spaceman-text">
+      <span class="spaceman-text-mask"></span>
+    </div>
+  </div>
+  <div class="text-mod text-mod--newtr-block">
+    <h6>Site Design</h6>
+    <h3>A contemporary take on Modernism</h3>
+    <p>Nullam vehicula tincidunt dignissim. Quisque convallis auctor massa at accumsan. Proin pellentesque accumsan ultricies. Proin non aliquam nisi, ac luctus odio. Donec semper rhoncus libero molestie feugiat. Vestibulum vel orci posuere, malesuada nulla id, egestas purus. Donec vitae lacinia augue.</p>
+    <p>Suspendisse potenti. Sed auctor dui et justo pellentesque, non fermentum sapien mattis. Nunc eu nibh nunc. Pellentesque sed porta magna. Mauris tincidunt eget urna nec consectetur. Morbi pharetra, enim et sodales iaculis, erat purus blandit libero, tincidunt finibus risus orci quis nulla.
+    </p>
+  </div>
+  <ul class="newtr-img__list">
+    <li class="newtr-img__item fade-in">
+      <img class="newtr-img" src="static/img/10plants.jpg">
+    </li>
+    <li class="newtr-img__item fade-in">
+      <img class="newtr-img" src="static/img/10interface.jpg">
+    </li>
+    <li class="newtr-img__item fade-in">
+      <img class="newtr-img" src="static/img/10cells.jpg">
+    </li>
+  </ul>
+</div>
+<div class="newtr-video-mod fade-in">
+  <video preload="auto" poster="static/img/10Tech.png" class="newtr-video" controls>
+  <source class="video-mp4" type="video/mp4; codecs=avc1.42E01E,mp4a.40.2" src="/static/img/video/breakthrough.mp4">
+</div>
+
+<img src="static/img/TR-part-2.png" class="screenshot">
+
+<div class="phone-test">
+<section class="section-block section-block--black">
+  <div class="section__width">
+
+    <div id="trigger1"></div>
+    <div class="clip">
+      <div class="phone__group">
+        <div class="phone__mod phone__mod--1">
+          <div class="phone phone--1">
+            <div class="phone__inner">
+              <img class="iphone__inner__image" src="/static/img/phone-screen.png" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="phone__mod phone__mod--3">
+          <div class="phone">
+            <div class="phone__inner">
+              <img class="iphone__inner__image phone__inner-bottom" src="/static/img/phone-screen-2.jpg" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="phone__mod phone__mod--4">
+          <div class="phone">
+            <div class="phone__inner">
+              <img class="iphone__inner__image phone__inner-bottom" src="/static/img/phone-screen-3.jpg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-mod">
+      <h6>Content Strategy</h6>
+      <h3>Making the Technology Review  a daily destination</h3>
+      <p>Somthing abou thow there used to be a perception problem. Magazine first to digital first. Daily news letter and . Suspendisse potenti. Sed auctor dui et justo pellentesque, non fermentum sapien mattis. Nunc eu nibh nunc. Pellentesque sed porta magna. </p>
+    </div>
+  </div>
+
+</section>
+<section class="section-block section-block--white">
+  <div class="trigger-mod">
+    <div class="inbox-trigger" id="trigger2"></div>
+    <div class="inbox-trigger" id="trigger3"></div>
+    <div class="inbox-trigger" id="trigger4"></div>
+  </div>
+
+<div class="clip">
+  <div class="phone__mod phone__mod--2">
+    <div class="phone">
+      <div class="phone__inner">
+        <img class="iphone__inner__image--2" src="/static/img/inbox-group.png" alt="">
+      </div>
+    </div>
+  </div>
+<div class="text-mod">
+  <h3>On the site <br>&amp; in your inbox</h3>
+  <p>We wanted the Tech Review team to treat The Daily like it’s own product. Meeting the primary audience — C level exectutives — in their inbox was as important as a prominant place on the homepage and custom article sets.</p>
+</div>
+</div>
+</section>
+</div>
+
+<img src="static/img/TR-part-3.png" class="screenshot">
+
+{% endblock %}
+

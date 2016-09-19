@@ -1,0 +1,161 @@
+@charset "UTF-8";
+// Fonts
+// -------------------------------------------
+
+//
+// Optimo Plain
+//
+
+@font-face {
+  font-family: "plain";
+  src: url("../fonts/Plain/PlainMedium-Regular.eot");
+  src: url("../fonts/Plain/PlainMedium-Regular.eot?") format("embedded-opentype"),
+       url("../fonts/Plain/PlainMedium-Regular.woff") format('woff'),
+       url('../fonts/Plain/PlainMedium-Regular.svg#PlainMedium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "plain";
+  src: url("../fonts/Plain/PlainBold-Regular.eot");
+  src: url("../fonts/Plain/PlainBold-Regular.eot?") format("embedded-opentype"),
+       url("../fonts/Plain/PlainBold-Regular.woff") format('woff'),
+       url('../fonts/Plain/PlainBold-Regular.svg#PlainBold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+//
+// Portrait
+//
+
+@font-face {
+  font-family: "portrait";
+  src: url("../fonts/Portrait/Portrait-Light-Web.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "portrait";
+  src: url("../fonts/Portrait/Portrait-LightItalic-Web.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "portrait";
+  src: url("../fonts/Portrait/Portrait-Regular-Web.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "portrait";
+  src: url("../fonts/Portrait/Portrait-RegularItalic-Web.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "portrait";
+  src: url("../fonts/Portrait/Portrait-Medium-Web.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "portrait";
+  src: url("../fonts/Portrait/Portrait-MediumItalic-Web.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "portrait";
+  src: url("../fonts/Portrait/Portrait-Bold-Web.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "portrait";
+  src: url("../fonts/Portrait/Portrait-BoldItalic-Web.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+}
+
+// Portrait Text
+
+@font-face {
+  font-family: "portrait-text";
+  src: url("../fonts/Portrait/PortraitText-Regular-Web.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "portrait-text";
+  src: url("../fonts/Portrait/PortraitText-RegularItalic-Web.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "portrait-text";
+  src: url("../fonts/Portrait/PortraitText-Bold-Web.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "portrait-text";
+  src: url("../fonts/Portrait/PortraitText-BoldItalic-Web.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+    font-family: "Tiempos";
+    src: url("../fonts/Tiempos/TiemposHeadlineWeb-Black.eot");
+    src: local("â˜º"),url("../fonts/Tiempos/TiemposHeadlineWeb-Black.eot?iefix") format("eot"),url("../fonts/Tiempos/TiemposHeadlineWeb-Black.woff") format("woff"),local("â˜º");
+    font-weight: 900;
+    font-style: normal
+}
+@font-face {
+    font-family: "Tiempos";
+    src: url("../fonts/Tiempos/TiemposHeadlineWeb-BlackItalic.eot");
+    src: local("â˜º"),url("../fonts/Tiempos/TiemposHeadlineWeb-BlackItalic.eot?iefix") format("eot"),url("../fonts/Tiempos/TiemposHeadlineWeb-BlackItalic.woff") format("woff"),local("â˜º");
+    font-weight: 900;
+    font-style: italic
+}
+@font-face {
+    font-family: "Tiempos";
+    src: url("../fonts/Tiempos/TiemposTextWeb-Regular.eot");
+    src: local("â˜º"),url("../fonts/Tiempos/TiemposTextWeb-Regular.eot?iefix") format("eot"),url("../fonts/Tiempos/TiemposTextWeb-Regular.woff") format("woff"),local("â˜º");
+    font-weight: 300;
+    font-style: normal
+}
+@font-face {
+    font-family: "Tiempos";
+    src: url("../fonts/Tiempos/TiemposTextWeb-RegularItalic.eot");
+    src: local("â˜º"),url("../fonts/Tiempos/TiemposTextWeb-RegularItalic.eot?iefix") format("eot"),url("../fonts/Tiempos/TiemposTextWeb-RegularItalic.woff") format("woff"),local("â˜º");
+    font-weight: 300;
+    font-style: italic
+}
+@font-face {
+    font-family: "Tiempos";
+    src: url("../fonts/Tiempos/TiemposTextWeb-Semibold.eot");
+    src: local("â˜º"),url("../fonts/Tiempos/TiemposTextWeb-Semibold.eot?iefix") format("eot"),url("../fonts/Tiempos/TiemposTextWeb-Semibold.woff") format("woff"),local("â˜º");
+    font-weight: 700;
+    font-style: normal
+}
+@font-face {
+    font-family: "Tiempos";
+    src: url("../fonts/Tiempos/TiemposTextWeb-SemiboldItalic.eot");
+    src: local("â˜º"),url("../fonts/Tiempos/TiemposTextWeb-SemiboldItalic.eot?iefix") format("eot"),url("../fonts/Tiempos/TiemposTextWeb-SemiboldItalic.woff") format("woff"),local("â˜º");
+    font-weight: 700;
+    font-style: italic
+}
+

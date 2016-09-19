@@ -46,7 +46,7 @@ if ($('body').hasClass('cover-anim')) {
         circles = [];
         for(var i=0; i<30; i++) {
             var circle = new createjs.Shape();
-            var r = 20*Math.random() + 20;
+            var r = blobWidth / 25 *Math.random() * 2;
             var x = blobHeight*Math.random();
             var y = blobWidth*Math.random();
             var color = colors[Math.floor(i%colors.length)];
@@ -97,6 +97,103 @@ if ($('body').hasClass('cover-anim')) {
         }
     }
 
+    if ($('body').hasClass('cover-anim')) {
+      window.onload = function() { init(); };
+    }
+})();
 
-    window.onload = function() { init() };
+
+
+(function(){
+  let controller = new ScrollMagic.Controller();
+
+  if ($('body').hasClass('phone-test')) {
+
+    let wHeight = $(window).height();
+    let topOffset = -100;
+    let iphoneScreenHeight = $('.iphone__inner__image').height();
+    let iphoneHeight = $('.phone--1').height();
+    // let topOffset = wHeight / 2 - 100;
+    let introHeight = $('.section-block--black').height();
+    // debugger;
+    $('.section-block--black').css({
+      'min-height': `${wHeight - iphoneHeight  + iphoneScreenHeight * .75 + 200 + 200 }px`
+    });
+
+    $('.section-block--white').css({
+      'min-height': `${$('.phone__mod--2').height() + $('.trigger-mod').height() }px`
+    });
+    // debugger;
+    $(function () { // wait for document ready
+      // build scene
+      let tween = TweenMax.to(".phone__mod--1 .iphone__inner__image", 1, {className: "+=phone__inner-bottom"});
+
+      let scene = new ScrollMagic.Scene({triggerElement: "#trigger1", triggerHook: "onLeave", duration: iphoneScreenHeight + introHeight })
+              .setPin(".phone__group")
+              // .addIndicators({name: "1 (duration: 300)"}) // add indicators (requires plugin)
+              .addTo(controller)
+              .offset(topOffset);
+
+      let scene2 = new ScrollMagic.Scene({triggerElement: "#trigger1", triggerHook: "onLeave", duration: iphoneScreenHeight  *.75 })
+              // .addIndicators({name: "1 (duration: 300)"}) // add indicators (requires plugin)
+              .addTo(controller)
+              .offset(topOffset)
+              .setTween(tween)
+              .on('enter', function() {
+                $('.phone__group').removeClass('show-phones')
+              })
+              .on('leave', function(event) {
+                console.log(event.state);
+                if (event.state === "AFTER") {
+                  $('.phone__group').addClass('show-phones');
+                }
+              });
+
+      let scene3 = new ScrollMagic.Scene({triggerElement: "#trigger2", triggerHook: "onLeave"})
+              .addTo(controller)
+              .setClassToggle(".iphone__inner__image--2", "js-step-two");
+      let scene4 = new ScrollMagic.Scene({triggerElement: "#trigger3", triggerHook: "onLeave"})
+              .addTo(controller)
+              .setClassToggle(".iphone__inner__image--2", "js-step-three");
+
+      let scene5 = new ScrollMagic.Scene({triggerElement: "#trigger4", triggerHook: "onLeave"})
+              .addTo(controller)
+              // .setClassToggle(".phone__mod--2", "js-not-fixed");
+              .on("enter", function() {
+                $(".phone__mod--2").css({
+                  'top': `${$('.trigger-mod').height() - 75}px`,
+                  'position': 'absolute'
+                })
+              })
+              .on("leave", function() {
+                $(".phone__mod--2").css({
+                  'top': `100px`,
+                  'position': 'fixed'
+                })
+              });
+    });
+    }
+})();
+
+
+(function(){
+
+  if ($('body').hasClass('cover-scroll')) {
+
+    let controller = new ScrollMagic.Controller();
+    // let spaceTextTween = TweenMax.to(".spaceman-text-mod", 1, {className: "+=spaceman-text-mod--fade"});
+    let spacemanTween = TweenMax.to(".spaceman-img", 1, {className: "+=spaceman-img--fade"});
+
+    new ScrollMagic.Scene({triggerElement: "#space-trigger", triggerHook: "onEnter", duration: "200%"})
+        .addTo(controller)
+        .offset(150)
+        // .setTween(spaceTextTween)
+        .setTween(spacemanTween);
+
+    $('.fade-in').each(function(index, elem) {
+      new ScrollMagic.Scene({triggerElement: elem})
+          .addTo(controller)
+          .setClassToggle(elem, "fade-in--visible");
+    });
+  }
 })();
